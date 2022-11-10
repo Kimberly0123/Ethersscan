@@ -3,8 +3,14 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from enum import Enum
 
-# Create your views here.
+
+# ENUM class
+class ErcProtocols(Enum):
+    ECR20 = 1
+    ECR721 = 2
+    ECR1155 = 3
 
 
 @csrf_exempt
@@ -19,6 +25,6 @@ def ercprotocols(request):
         :: result: [{value: ,name: }]
     """
     context = {}
-    if request.method == "GET":
-
-        return Response(context, status=status.HTTP_200_OK)
+    context['result'] = ["ECR20", "ECR721", "ECR1155"]
+    context['status'] = status.HTTP_200_OK
+    return Response(context, status=status.HTTP_200_OK)
