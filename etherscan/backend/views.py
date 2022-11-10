@@ -6,13 +6,6 @@ from rest_framework import status
 from enum import Enum
 
 
-# ENUM class
-class ErcProtocols(Enum):
-    ECR20 = 1
-    ECR721 = 2
-    ECR1155 = 3
-
-
 @csrf_exempt
 @api_view(["GET"])
 def ercprotocols(request):
@@ -67,7 +60,20 @@ def contracts(request):
 @api_view(["GET"])
 def contracts(request):
     """
-    /tokens/{id}?contract={contractId}
+    /tokens/{id}/?contract={contractId}
+    """
+    context = {''}
+
+    print(request.query_params.get('name'))
+
+    return Response(context, status=status.HTTP_200_OK)
+
+
+@csrf_exempt
+@api_view(["GET"])
+def contracts(request):
+    """
+    /tokens/{id}/?contract={contractId}
     """
     context = {''}
 
