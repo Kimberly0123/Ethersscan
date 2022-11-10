@@ -20,4 +20,5 @@ from backend import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ercprotocols/', views.ercprotocols, name="ercprotocols"),
+    path('contracts/', views.contracts, name="contracts"),
 ]

@@ -28,3 +28,49 @@ def ercprotocols(request):
     context['result'] = ["ECR20", "ECR721", "ECR1155"]
     context['status'] = status.HTTP_200_OK
     return Response(context, status=status.HTTP_200_OK)
+
+
+@csrf_exempt
+@api_view(["GET"])
+def accounts(request):
+    """
+    /accounts
+    """
+    context = {}
+    return Response(context, status=status.HTTP_200_OK)
+
+
+@csrf_exempt
+@api_view(["GET"])
+def contracts(request, id):
+    """
+    /contracts/{id}
+    """
+    context = {}
+    return Response(context, status=status.HTTP_200_OK)
+
+
+@csrf_exempt
+@api_view(["GET"])
+def contracts(request):
+    """
+    /contracts?token_name={token_name}&erc={erc}?acount={account}
+    """
+    context = {''}
+
+    print(request.query_params.get('name'))
+
+    return Response(context, status=status.HTTP_200_OK)
+
+
+@csrf_exempt
+@api_view(["GET"])
+def contracts(request):
+    """
+    /tokens/{id}?contract={contractId}
+    """
+    context = {''}
+
+    print(request.query_params.get('name'))
+
+    return Response(context, status=status.HTTP_200_OK)
